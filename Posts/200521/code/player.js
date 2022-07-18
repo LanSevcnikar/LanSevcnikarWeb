@@ -47,9 +47,9 @@ class Player{
 		d.rotate(this.a);
 		let x = this.x
 		let y = this.y;
-		if(keyIsDown(UP_ARROW) || Wmove){
+		if(keyIsDown(87) || Wmove){
 			d = d;
-		}else if(keyIsDown(DOWN_ARROW) || Smove)  {
+		}else if(keyIsDown(83) || Smove)  {
 			d = new Vector(-d.x,-d.y);
 		}else{
 			d = new Vector(0,0);
@@ -89,14 +89,14 @@ class Player{
 	}
 
 	rotate(){
-		if(keyIsDown(LEFT_ARROW) || Amove){
+		if(keyIsDown(65) || Amove){
 			this.a += this.rv * deltaTime/1000;
 			this.r.forEach(r => {
 				r.a += this.rv * deltaTime/1000;;
 				if(r.a > PI) r.a -= 2*PI;
 				if(r.a < -PI) r.a += 2*PI;
 			});
-		}else if(keyIsDown(RIGHT_ARROW) || Dmove)  {
+		}else if(keyIsDown(68) || Dmove)  {
 			this.a -= this.rv * deltaTime/1000;
 			this.r.forEach(r => {
 				r.a -= this.rv * deltaTime/1000;;

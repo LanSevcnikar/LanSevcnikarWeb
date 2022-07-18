@@ -1,114 +1,124 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="CSS/blog/blog.css" />
-    <link rel="stylesheet" href="CSS/header/header.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap"
-      rel="stylesheet"
-    />
-    <title>Lan's blog</title>
-    <script src="JS/loadPosts.js"></script>
-  </head>
 
-  <body>
-    <div class="opening">
-      <p>Hi, I'm</p>
-      <h1>
-        Lan Sevčnikar
-      </h1>
-      <p>I make computers do stuff</p>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="CSS/blog/blog.css" />
+  <link rel="stylesheet" href="CSS/header/header.css" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap" rel="stylesheet" />
+  <title>Lan's blog</title>
+  <script src="JS/loadPosts.js"></script>
+</head>
+
+<body>
+  <div class="opening">
+    <p>Hi, I'm</p>
+    <h1>
+      Lan Sevčnikar
+    </h1>
+    <p>I make computers do stuff</p>
+  </div>
+  <header class="header" id="myHeader">
+    <p class="header__logo">Lan's blog</p>
+    <div class="header__right">
+      <a href="index.html" class="header__link"> Home</a>
+      <a href="#" class="header__link header__link--active"> Blog</a>
+      <a href="portfolio.html" class="header__link"> Portfolio</a>
     </div>
-    <header class="header" id="myHeader">
-      <p class="header__logo">Lan's blog</p>
-      <div class="header__right">
-        <a href="index.html" class="header__link"> Home</a>
-        <a href="#" class="header__link header__link--active"> Blog</a>
-        <a href="portfolio.html" class="header__link"> Portfolio</a>
-      </div>
-      <script src="JS/header.js"></script>
-    </header>
-    <div class="mainBody">
-      <div class="feed" onload="loadPosts();">
-        <div class="posts">
-          <div class="post">
-            <a href="Posts/201029/201029.html">
-              <img src="img/201029.jpg" alt="example of raycasting" />
-            </a>
-            <p class="date">2020 - 10 - 29</p>
-            <div class="post__title">
-              <a class="title" href="Posts/201029/201029.html">Connecting famous actors</a>
-            </div>
-            <p class="description">
-              Inspired by a TikTok, I spent 10 hours of my life trying to see how closely knit actors in Hollywood are one to another, connecting them all through common movies.
-            </p>
+    <script src="JS/header.js"></script>
+  </header>
+  <div class="mainBody">
+    <div class="feed" onload="loadPosts();">
+      <div class="posts">
+        <div class="post">
+          <a href="Posts/220718/220718.html">
+            <img src="img/220718.jpg" alt="A screenshot of the app with a simple map and a few characters" />
+          </a>
+          <p class="date">2022 - 07 - 18</p>
+          <div class="post__title">
+            <a class="title" href="Posts/220718/220718.html">Dungeon BluePrint</a>
           </div>
-          <div class="post">
-            <a href="Posts/200521/200521.html">
-              <img src="img/200521.jpg" alt="screenshot from the engine" />
-            </a>
-            <p class="date">2020 - 05 - 21</p>
-            <div class="post__title">
-              <a class="title" href="Posts/200521/200521.html">
-                Remaking Castle Wolfenstain</a
-              >
-            </div>
-            <p class="description">
-              Building an graphical engine is no easy task and thus in this
-              post, we recreate the original Wolfenstein engine, which is simple
-              enough that its implementation poses no bigger problem while also
-              being interesting to look at
-            </p>
+          <p class="description">
+            Having been told that I can't work on Dungeon Scrawl, I decided to make my own version of the program with
+            all the tools that I needed. Made for easier creation of DnD maps and to ease their use also.
+          </p>
+        </div>
+        <div class="post">
+          <a href="Posts/201029/201029.html">
+            <img src="img/201029.jpg" alt="An example of the app using Tom Cruise and Benedict Cumberbatch" />
+          </a>
+          <p class="date">2020 - 10 - 29</p>
+          <div class="post__title">
+            <a class="title" href="Posts/201029/201029.html">Connecting famous actors</a>
           </div>
-          <div class="post">
-            <a href="Posts/200420/200420.html">
-              <img src="img/200420.jpg" alt="example of raycasting" />
-            </a>
-            <p class="date">2020 - 04 - 20</p>
-            <div class="post__title">
-              <a class="title" href="Posts/200420/200420.html"> Raycasting</a>
-            </div>
-            <p class="description">
-              The art of rendering starts by figuring out what a ray of light
-              hits. We explore one of the techniques.
-            </p>
+          <p class="description">
+            Inspired by a TikTok, I spent 10 hours of my life trying to see how closely knit actors in Hollywood are one
+            to another, connecting them all through common movies.
+          </p>
+        </div>
+        <div class="post">
+          <a href="Posts/200521/200521.html">
+            <img src="img/200521.jpg" alt="screenshot from the engine" />
+          </a>
+          <p class="date">2020 - 05 - 21</p>
+          <div class="post__title">
+            <a class="title" href="Posts/200521/200521.html">
+              Remaking Castle Wolfenstain</a>
           </div>
-          <div class="post">
-            <a href="Posts/191018/191018.html">
-              <img src="img/191018.jpg" alt="screenshot of the simulator" />
-            </a>
-            <p class="date">2019 - 10 - 18</p>
-            <div class="post__title">
-              <a class="title" href="Posts/191018/191018.html">
-                Dating - DrugaMatching</a
-              >
-            </div>
-            <p class="description">
-              Yes, a dating website. I built a website made to match students
-              from my school, using most notabily Firebase
-            </p>
+          <p class="description">
+            Building an graphical engine is no easy task and thus in this
+            post, we recreate the original Wolfenstein engine, which is simple
+            enough that its implementation poses no bigger problem while also
+            being interesting to look at
+          </p>
+        </div>
+        <div class="post">
+          <a href="Posts/200420/200420.html">
+            <img src="img/200420.jpg" alt="example of raycasting" />
+          </a>
+          <p class="date">2020 - 04 - 20</p>
+          <div class="post__title">
+            <a class="title" href="Posts/200420/200420.html"> Raycasting</a>
           </div>
-          <div class="post">
-            <a href="Posts/190913/190913.html">
-              <img src="img/190913.jpg" alt="screenshot of the simulator" />
-            </a>
-            <p class="date">2019 - 09 - 13</p>
-            <div class="post__title">
-              <a class="title" href="Posts/190913/190913.html">
-                Simulating physics on 2D balls</a
-              >
-            </div>
-            <p class="description">
-              While the base idea sounds simple enough, simulating multiple
-              balls interacting with each other and the environment becomes more
-              and more complicated as you try to explain it in terms a computer
-              would understand.
-            </p>
+          <p class="description">
+            The art of rendering starts by figuring out what a ray of light
+            hits. We explore one of the techniques.
+          </p>
+        </div>
+        <div class="post">
+          <a href="Posts/191018/191018.html">
+            <img src="img/191018.jpg" alt="screenshot of the simulator" />
+          </a>
+          <p class="date">2019 - 10 - 18</p>
+          <div class="post__title">
+            <a class="title" href="Posts/191018/191018.html">
+              Dating - DrugaMatching</a>
           </div>
+          <p class="description">
+            Yes, a dating website. I built a website made to match students
+            from my school, using most notabily Firebase
+          </p>
+        </div>
+        <div class="post">
+          <a href="Posts/190913/190913.html">
+            <img src="img/190913.jpg" alt="screenshot of the simulator" />
+          </a>
+          <p class="date">2019 - 09 - 13</p>
+          <div class="post__title">
+            <a class="title" href="Posts/190913/190913.html">
+              Simulating physics on 2D balls</a>
+          </div>
+          <p class="description">
+            While the base idea sounds simple enough, simulating multiple
+            balls interacting with each other and the environment becomes more
+            and more complicated as you try to explain it in terms a computer
+            would understand.
+          </p>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

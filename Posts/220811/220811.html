@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../../CSS/posts/posts.css" />
+  <link rel="stylesheet" href="../../CSS/header/header.css" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap" rel="stylesheet" />
+  <html xmlns="http://www.w3.org/1999/xhtml">
+
+  </html>
+  <title>Lan Sevcnikar - Blog</title>
+</head>
+
+<body>
+  <div class="opening">
+    <p>Hi, I'm</p>
+    <h1>
+      Lan Sevčnikar
+    </h1>
+    <p>I make computers do stuff</p>
+  </div>
+  <header class="header" id="myHeader">
+    <p class="header__logo">Lan's blog</p>
+    <div class="header__right">
+      <a href="../../index.html" class="header__link"> Home</a>
+      <a href="../../blog.html" class="header__link header__link--active">
+        Blog</a>
+      <a href="../../portfolio.html" class="header__link"> Portfolio</a>
+    </div>
+  </header>
+  <div class="mainBody">
+    <div class="post">
+      <a href="../../blog.html" style="text-decoration: none; color: #3b3b3b;">Go back</a>
+      <h1>
+        Travelling salesperson problem
+        <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem"
+          style="color: #3b3b3b; font-size: 0.5em;">[wiki]</a>
+      </h1>
+      <p>
+        I have encountered the problem many times before while attending the lectures made for IOI. So I was rather
+        familiar with the problem and the optimal solution. Yet, it was discovering the plethora of solutions that are
+        meant to approximate the optimal solution that made me interested in tackling and visualizing this problem.
+      </p>
+      <p>
+        I also made a few simplifications to the problem. While all of these algorithms, I think, would work on the
+        abstract version of this problem, I did simplify it by getting rid of such concepts as edges. As all of the
+        nodes are actually just points in Euclidean space, it means that all points could be connected to all other
+        points as well as that the shortest path from node A to node B is the edge connecting them directly. This was
+        done mainly to simplify the visual part of the problem as well as I think that it changes the actual programs
+        little other than adding some boring checks in the end to see if the code could work.
+      </p>
+
+      <p>
+        I implemented the following solutions:
+      <ol>
+        <li>Random</li>
+        <li>Greedy</li>
+        <li>Brute force</li>
+        <li>Dynamic</li>
+        <li>Ant colony optimization</li>
+        <li>2 optimization</li>
+        <li>Simulated annealing</li>
+        <li>Figuring out the FOV of characters </li>
+        <li>Hiding things, especially shapes, that are outside of the FOV</li>
+      </ol>
+      as well as a way to generate worlds, involving both a completely random world and a small world system. It was in
+      my interest to also implement the 3 optimization algorithms as well as the Christofides algorithm yet I decided
+      against that as the former is similar to the 2 opt yet just a lot of code and the latter was to my surprise so
+      difficult to find (finding the perfect matchings) that I decided to take a break from it all.
+      </p>
+      <h3>
+        Random and greedy
+      </h3>
+      <p>
+        Two incredibly simple algorithms. At each step of the way, the random algorithm takes a random node as the next
+        node while the greedy algorithm takes the node that is the closest to it. As one could imagine, choosing them at
+        random is an incredibly bad decision and results in incredibly long paths yet the greedy solution surprised me
+        with just how effective it was.
+      </p>
+      <h3>
+        Brute force and dynamic programming
+      </h3>
+      <p>
+        These two have been well known to me for a few years now as they are the "cream de la cream" of dynamic
+        programming. The brute force that I implemented is incredibly bad and would actually out-preformed significantly
+        by the dynamic solution even if we were to take out the memoization. We start of by generating an array of all
+        possible paths we could take and then iterate through it to find the most optimal one. As expected from a
+        brute force solution, the complexity is actually factorial to the number of nodes. The pre-generation of all the
+        paths actually allowed me to implement the visual part much easier as each frame is representative of checking
+        one of the already computed permutations.
+      </p>
+      <p>
+        The dynamic solution is also incredibly simple. We notice that we can recursively solve the problem by calling
+        the function with two parameters. The current node that we are on and the set of all nodes that we have visited
+        thus far. We can notice that it is possible to disregard in what order we visited the previous nodes and
+        therefore we can use memoization to go from an algorithm that runs in factorial time to one that runs in
+        exponential.
+      <p>
+        There is a lot written on these problems already so I try to avoid talking much about it but I would personally
+        checks <a href="https://www.amazon.com/Competitive-Programming-3rd-Steven-Halim/dp/B00FG8MNN8">Competitive
+          programming 3</a> if you were to be interested in more detailed explanations of
+        these simple algorithms.
+      </p>
+      <h3>
+        Hiding things, especially shapes, that are outside of the FOV
+      </h3>
+      <p>
+        This is by far the slowest part of the app. For each line segment that is drawn, I had to first segment it
+        further to each character's FOV, after which I had to check for each item if the item is inside of
+        some FOV. This is very slow when there are 40 or so shapes and I am very disappointed but as it does the job I
+        need it to do, I am quite happy.
+      </p>
+      <h1>
+        Code on GitHub
+      </h1>
+      <a style="display: block; margin: auto;"
+        href="https://github.com/Lan-Sevcnikar/p5.js-projects/tree/master/20-05-21%20WolfenstainClone"><img
+          style="display: block; margin: auto;" src="../../img/GitHub-Mark-120px-plus.png" alt="GitHub logo" /></a>
+      Uwu, have fun.
+      </p>
+      <div id="outValue" style="display: inline-block; position: relative; width: 100%;">
+        <div id="inValue" style="margin-top: 75.25%;"></div>
+        <iframe src="code/index.html" style="
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              border-radius: 1em;
+            " width="100%" height="100%"></iframe>
+      </div>
+      <h1>
+        References
+      </h1>
+      <ul>
+        <li style="word-wrap: break-word;">None</li>
+      </ul>
+      <p>
+        <b>
+          Note:
+        </b>
+        This is also the last post that is done as a part of my back-logging of all my older projects. While some older
+        projects will still make their way here, this is the last one and after this one, all post will be writen
+        approximetly at the same time as I actually endoulge myself with it.
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -5,134 +5,54 @@ html {
 body {
   background-color: #e0e0e0;
   margin: 0;
-}
-
-@-webkit-keyframes load1 {
-  0% {
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-    opacity: 0%;
-  }
-  50% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 100%;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 100%;
-  }
+  padding: 0;
 }
 
 @keyframes load1 {
   0% {
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+    transform: translateY(-50%);
     opacity: 0%;
   }
   50% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
     opacity: 100%;
   }
   100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 100%;
-  }
-}
-
-@-webkit-keyframes load2 {
-  0% {
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-    opacity: 0%;
-  }
-  45% {
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-    opacity: 0%;
-  }
-  95% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 100%;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
     opacity: 100%;
   }
 }
 
 @keyframes load2 {
   0% {
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+    transform: translateY(-50%);
     opacity: 0%;
   }
   45% {
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+    transform: translateY(-50%);
     opacity: 0%;
   }
   95% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
     opacity: 100%;
   }
   100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 100%;
-  }
-}
-
-@-webkit-keyframes load3 {
-  0% {
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-    opacity: 0%;
-  }
-  75% {
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-    opacity: 0%;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
     opacity: 100%;
   }
 }
 
 @keyframes load3 {
   0% {
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+    transform: translateY(-50%);
     opacity: 0%;
   }
   75% {
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+    transform: translateY(-50%);
     opacity: 0%;
   }
   100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 100%;
-  }
-}
-
-@-webkit-keyframes load4 {
-  0% {
-    opacity: 0%;
-  }
-  80% {
-    opacity: 0%;
-  }
-  100% {
+    transform: translateY(0);
     opacity: 100%;
   }
 }
@@ -150,15 +70,30 @@ body {
 }
 
 .openingAbout {
+  padding: 0;
+  margin: 0;
   font-family: montserrat;
   position: absolute;
-  background-color: #242424;
+  background-color: #191b1f;
   height: 100%;
   width: 100%;
   color: #e0e0e0;
 }
 
+.openingAbout canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+}
+
 .openingAbout .titlePage {
+  width: auto;
+  z-index: 2;
   position: relative;
   top: 40%;
   left: 30%;
@@ -166,18 +101,15 @@ body {
 }
 
 .openingAbout .titlePage #load1 {
-  -webkit-animation: load1 1.5s 1 0s ease-out;
-          animation: load1 1.5s 1 0s ease-out;
+  animation: load1 1.5s 1 0s ease-out;
 }
 
 .openingAbout .titlePage #load2 {
-  -webkit-animation: load2 1.5s 1 0s ease-out;
-          animation: load2 1.5s 1 0s ease-out;
+  animation: load2 1.5s 1 0s ease-out;
 }
 
 .openingAbout .titlePage #load3 {
-  -webkit-animation: load3 2.7s 1 0s ease-out;
-          animation: load3 2.7s 1 0s ease-out;
+  animation: load3 2.7s 1 0s ease-out;
 }
 
 .openingAbout .titlePage p {
@@ -190,20 +122,19 @@ body {
   font-size: 4.2rem;
   padding: 0;
   margin: 0;
+  width: 100%;
 }
 
 .openingAbout .arrow {
   left: 50%;
   top: 85%;
-  background: #242424;
+  background: #191b1f;
   height: 10px;
   width: 0px;
   margin: 0 auto;
   position: absolute;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  -webkit-animation: load4 4s ease;
-          animation: load4 4s ease;
+  transform: rotate(90deg);
+  animation: load4 4s ease;
 }
 
 .openingAbout .arrow:before, .openingAbout .arrow:after {
@@ -217,29 +148,25 @@ body {
 .openingAbout .arrow:before {
   right: -16px;
   top: -8px;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .openingAbout .arrow:after {
   left: 0px;
   top: 2px;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 .backheader {
   z-index: 1;
   padding: 10px 0px;
   position: absolute;
-  background-color: #242424;
+  background-color: #191b1f;
   top: 100%;
   height: 8%;
   width: 100%;
   text-align: center;
   color: #e0e0e0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -258,10 +185,9 @@ body {
 }
 
 .backheader a:hover {
-  -webkit-transition: .5s ease;
   transition: .5s ease;
   background-color: #e0e0e0;
-  color: #242424;
+  color: #191b1f;
 }
 
 .sticky {
@@ -281,29 +207,27 @@ body {
   left: 20%;
   width: 60%;
   margin: auto;
-  color: #242424;
+  color: #191b1f;
 }
 
 .mainBody .two_cards {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .mainBody .two_cards .card {
   text-decoration: none;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
-  background-color: #242424;
+  background-color: #191b1f;
   color: #e0e0e0;
   width: 40%;
   margin: auto;
   padding: 1em;
-  border-radius: 1em;
+  border-radius: 0.3em;
+  height: 140px;
 }
 
 .mainBody .two_cards .card:hover {
-  background-color: #3e3e3e;
+  background-color: #30343b;
 }
 
 .mainBody .aboutMe {
@@ -345,7 +269,6 @@ body {
   .mainBody .two_cards {
     width: 80%;
     margin: auto;
-    display: -ms-grid;
     display: grid;
   }
   .mainBody .two_cards .card {
@@ -373,4 +296,3 @@ body {
     font-size: 1rem;
   }
 }
-/*# sourceMappingURL=index.css.map */

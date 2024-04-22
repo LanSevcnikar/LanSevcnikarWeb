@@ -29,7 +29,7 @@ body {
 .mainBody .feed .posts .post .date {
   margin-top: -8px;
   margin-bottom: 5px;
-  color: #747474;
+  color: #59637c;
 }
 
 .mainBody .feed .posts .post img {
@@ -43,14 +43,11 @@ body {
 }
 
 .mainBody .feed .posts .post img:hover {
-  -webkit-transition: .5s ease;
   transition: .5s ease;
   opacity: 60%;
 }
 
 .mainBody .feed .posts .post .post__title .attributes {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   float: right;
 }
@@ -67,19 +64,18 @@ body {
 .mainBody .feed .posts .post .post__title .attributes .attribute:hover {
   background-color: white;
   border-style: none solid none solid;
-  border-color: #272727;
+  border-color: #191c23;
 }
 
 .mainBody .feed .posts .post .title {
   text-decoration: none;
-  color: #272727;
+  color: #191c23;
   font-size: 2rem;
   font-weight: bold;
   margin-top: 1em;
 }
 
 .mainBody .feed .posts .post .title:hover {
-  -webkit-transition: .5s ease;
   transition: .5s ease;
   text-decoration: underline;
 }
@@ -95,4 +91,3 @@ body {
     width: 100%;
   }
 }
-/*# sourceMappingURL=blog.css.map */

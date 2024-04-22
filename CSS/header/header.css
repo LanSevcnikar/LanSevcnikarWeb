@@ -1,6 +1,6 @@
 .opening {
   font-family: montserrat;
-  background-color: #272727;
+  background-color: #191c23;
   height: 100%;
   padding: 3em 5em 3em 3em;
   color: #e0e0e0;
@@ -20,7 +20,7 @@
   z-index: 1;
   font-family: montserrat;
   overflow: hidden;
-  background-color: #272727;
+  background-color: #191c23;
   padding: 1em 0em;
 }
 
@@ -36,10 +36,9 @@
 }
 
 .header a:hover {
-  -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
   background-color: #e0e0e0;
-  color: #272727;
+  color: #191c23;
 }
 
 .header .header__logo {
@@ -83,24 +82,17 @@
 
 @media screen and (max-width: 620px) {
   .header .header__right {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     width: 100%;
     margin: 0px;
     padding: 0px;
     float: left;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: center;
   }
   .header .header__right a {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    flex: 1;
   }
   .header__logo {
     display: none;
   }
 }
-/*# sourceMappingURL=header.css.map */

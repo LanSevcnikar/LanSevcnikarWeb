@@ -62,10 +62,8 @@
         <li>Ant colony optimization</li>
         <li>2 optimization</li>
         <li>Simulated annealing</li>
-        <li>Figuring out the FOV of characters </li>
-        <li>Hiding things, especially shapes, that are outside of the FOV</li>
       </ol>
-      as well as a way to generate worlds, involving both a completely random world and a small world system. It was in
+      as well as a way to generate worlds, involving both a <i> completely random world </i> and a <i> small world </i> system. It was in
       my interest to also implement the 3 optimization algorithms as well as the Christofides algorithm yet I decided
       against that as the former is similar to the 2 opt yet just a lot of code and the latter was to my surprise so
       difficult to find (finding the perfect matchings) that I decided to take a break from it all.
@@ -78,9 +76,13 @@
         node while the greedy algorithm takes the node that is the closest to it. As one could imagine, choosing them at
         random is an incredibly bad decision and results in incredibly long paths yet the greedy solution surprised me
         with just how effective it was.
+        <p>
+          Random: O(n) <br>
+          Greedy: O(n^2)
+        </p>
       </p>
       <h3>
-        Brute force and dynamic programming
+        Brute force (naive) and dynamic programming
       </h3>
       <p>
         These two have been well known to me for a few years now as they are the "cream de la cream" of dynamic
@@ -90,6 +92,9 @@
         brute force solution, the complexity is actually factorial to the number of nodes. The pre-generation of all the
         paths actually allowed me to implement the visual part much easier as each frame is representative of checking
         one of the already computed permutations.
+        <p>
+          Brute force: O(n!)
+        </p>
       </p>
       <p>
         The dynamic solution is also incredibly simple. We notice that we can recursively solve the problem by calling
@@ -97,18 +102,54 @@
         thus far. We can notice that it is possible to disregard in what order we visited the previous nodes and
         therefore we can use memoization to go from an algorithm that runs in factorial time to one that runs in
         exponential.
+        <p>
+          Dynamic: O(2^n)
+        </p>
+      </p>  
+      <h3>
+        Ant colony optimization
+      </h3>
+      <p>
+        This algorithm works on the assumption that ants are able to find the shortest path by passive communication through eachother and very simple, modular thinking. 
+        Each ant at every points decides what node to visit next based on the pheromones on the edge and the distance to the node. 
+        Pheromones slowly evaporate, so paths that are not taken are slowly forgotten while the paths that are taken are reinforced.
+      </p>
+      <p> 
+        Although the logic itself was not too hard to implement, the real difficulty came in the fine tuning of the parameters.
+        There are (at least in my code) 4 parameters you have to fiddle with, each being better suited for some problems than others.
+        But if the parameters are fine tuned for the problem (that is dependant on the amount of ants, amount of nodes, size of screen, distribution of nodes...)
+        this is actually a rather fun algorithm to watch and also effective at really large problems (sadly, large problems and this Javascript implementation do not align too well).
+        To be honest, I find myself disappointed by this algorithm as it is not as effective as I would have hoped. 
+      </p>
+      <h3>
+        2 opt optimizings
+      </h3>
+      <p>
+        A very brute and simple algorithm. We take two edges and swap them if the new path is shorter. We do this for all possible combinations of edges.
+        A version of this exists for 3 edges but I did not implement it as it is a lot more code but no more thinking.
+        In a way, I am sad by how effective it is, it somehow manages to be so much better than the ant colony optimization and yet it is so simple.
+        <p>
+          2 opt: O(n^2)
+        </p>
+      </p>
+      <h3>
+        Simulated annealing
+      </h3>
+      <p>
+        Another algorithm that takes inspiration from the real world, this time from the way crystal formation happens. An odd spin of the 2 opt, we take a random edge and swap it with another edge. If the new path is shorter, we take it; if it is longer, we take it with a probability
+        proportional to the temperature (the higher the temperature, the more likely we are to take a longer path). The temperature slowly decreases over time.
+        With this, we can escape local minima and find the global minimum.
+      </p>
+      <h3>
+        Conclusion
+      </h3>
       <p>
         There is a lot written on these problems already so I try to avoid talking much about it but I would personally
         checks <a href="https://www.amazon.com/Competitive-Programming-3rd-Steven-Halim/dp/B00FG8MNN8">Competitive
           programming 3</a> if you were to be interested in more detailed explanations of
         these simple algorithms.
       </p>
-      <h1>
-        Code on GitHub
-      </h1>
-      <a style="display: block; margin: auto;"
-        href="https://github.com/Lan-Sevcnikar/p5.js-projects/tree/master/20-05-21%20WolfenstainClone"><img
-          style="display: block; margin: auto;" src="../../img/GitHub-Mark-120px-plus.png" alt="GitHub logo" /></a>
+    
       Uwu, have fun.
       </p>
       <div id="outValue" style="display: inline-block; position: relative; width: 100%;">
@@ -128,14 +169,6 @@
       <ul>
         <li style="word-wrap: break-word;">None</li>
       </ul>
-      <p>
-        <b>
-          Note:
-        </b>
-        This is also the last post that is done as a part of my back-logging of all my older projects. While some older
-        projects will still make their way here, this is the last one and after this one, all post will be writen
-        approximetly at the same time as I actually endoulge myself with it.
-      </p>
     </div>
   </div>
 </body>

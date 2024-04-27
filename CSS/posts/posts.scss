@@ -56,6 +56,32 @@ pre {
   word-wrap: break-word;
 }
 
+.table-div {
+  width: 100%;
+  margin: auto;
+  display: flex;
+
+  justify-content: center;
+}
+
+table {
+  width: 70%;
+  // center
+  margin: auto;
+
+  border-collapse: collapse;
+  margin: 1em 0;
+  th {
+    background-color: $terciray;
+    color: $primary;
+    padding: 0.5em;
+  }
+  td {
+    padding: 0.5em;
+    border-bottom: 1px solid $terciray;
+  }
+}
+
 .showCodeBut {
   background-color: $terciray; /* Green */
   border: none;

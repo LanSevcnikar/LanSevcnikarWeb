@@ -54,6 +54,31 @@ pre {
   word-wrap: break-word;
 }
 
+.table-div {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 70%;
+  margin: auto;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+
+table th {
+  background-color: #e0e0e0;
+  color: #191b1f;
+  padding: 0.5em;
+}
+
+table td {
+  padding: 0.5em;
+  border-bottom: 1px solid #e0e0e0;
+}
+
 .showCodeBut {
   background-color: #e0e0e0;
   /* Green */

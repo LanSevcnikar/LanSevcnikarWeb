@@ -37,9 +37,176 @@
                 Spotify song recommendation algorithms
             </h1>
             <p>
-                In this post, I explore my approaches to building a song recommendation system using Spotify data. I use multiple approaches and compare the results
+                In this post, I explore my approaches to building a song recommendation system using Spotify data. I use
+                multiple approaches and compare the results
             </p>
-            
+
+            <h2>
+                Simple approach
+            </h2>
+            <p>
+                Firstly, I used a dataset, containing song metadata that can be found <a
+                    href="https://www.kaggle.com/datasets/yamaerenay/spotify-dataset-19212020-600k-tracks/data">here</a>.
+                For each song you are given - next to the obvious, such as artist, year, etc. - data that spotify
+                creates. Examples of it being:
+            <ul>
+                <li>Acousticness</li>
+                <li>Danceability</li>
+                <li>Energy</li>
+                <li>Instrumentalness</li>
+                <li>Liveness</li>
+                <li>Loudness</li>
+                <li>Speechiness</li>
+                <li>Tempo</li>
+            </ul>
+            Bellow is an image, containing the distribution of the valence of the songs in the dataset.
+            <img src="240424-01.png" alt="Distribution of data" style="width: 100%; height: auto;">
+            </p>
+            <p>
+                This data was then used to create values between 0 and 1, accoring to which percentaile of the data the
+                songs fell.
+                With that, I got the following results:
+            <div class="table-div">
+
+                <table>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td> popularity </td>
+                        <td> 0.819149 </td>
+                    </tr>
+                    <tr>
+                        <td> duration </td>
+                        <td> 125.667 </td>
+                    </tr>
+                    <tr>
+                        <td> explicit </td>
+                        <td> 0 </td>
+                    </tr>
+                    <tr>
+                        <td> danceability </td>
+                        <td> 0.335015 </td>
+                    </tr>
+                    <tr>
+                        <td> energy </td>
+                        <td> 0.179 </td>
+                    </tr>
+                    <tr>
+                        <td> key </td>
+                        <td> 0.454545 </td>
+                    </tr>
+                    <tr>
+                        <td> loudness </td>
+                        <td> 0.736815 </td>
+                    </tr>
+                    <tr>
+                        <td> mode </td>
+                        <td> 1.0 </td>
+                    </tr>
+                    <tr>
+                        <td> speechiness </td>
+                        <td> 0.033574 </td>
+                    </tr>
+                    <tr>
+                        <td> acousticness </td>
+                        <td> 0.88253 </td>
+                    </tr>
+                    <tr>
+                        <td> instrumentalness </td>
+                        <td> 0.0 </td>
+                    </tr>
+                    <tr>
+                        <td> liveness </td>
+                        <td> 0.0886 </td>
+                    </tr>
+                    <tr>
+                        <td> valence </td>
+                        <td> 0.315 </td>
+                    </tr>
+                    <tr>
+                        <td> tempo </td>
+                        <td> 0.391788 </td>
+                    </tr>
+                    <tr>
+                        <td> time_signature </td>
+                        <td> 0.8 </td>
+                    </tr>
+                    <tr>
+                        <td> musical_era </td>
+                        <td> 0.3 </td>
+                    </tr>
+                    <tr>
+                        <td> track_id </td>
+                        <td> 3BQHpFgAp4l80e1XslIjNI </td>
+                    </tr>
+                    <tr>
+                        <td> track_name </td>
+                        <td> Yesterday - Remastered 2009 </td>
+                    </tr>
+                    <tr>
+                        <td> artist_name </td>
+                        <td> ['The Beatles'] </td>
+                    </tr>
+                </table>
+            </div>
+            However, this quickly showed to be bad, as using either euclidean distance or cosine similarity to compare
+            songs showed to be absolutely useless:
+            <h4>
+                Similarity of songs to Yesterday - Remastered 2009 (The Beatles)
+            </h4>
+            <div class="table-div">
+
+                <table>
+                    <tr>
+                        <th>Track title</th>
+                        <th>Euclidean distance</th>
+                        <th>Cosine similarity</th>
+                    </tr>
+                    <tr>
+                        <td>Hey Jude</td>
+                        <td>305.668</td>
+                        <td>0.9999237</td>
+                    </tr>
+                    <tr>
+                        <td>Hypnotize</td>
+                        <td>104.173</td>
+                        <td>0.9999492</td>
+                    </tr>
+                </table>
+            </div>
+            </p>
+            <p>
+                It is quite obvious that this is horrible. So I go to the second method.
+            </p>
+            <h2>
+                Neural network approach - Word embeddings using Skip-gram
+            </h2>
+            <p>
+                The next idea I had was to use a neural network to create word embeddings of the songs. 
+            </p>
+            <p>
+                Spotify created a dataset that contains 1 million playlists. This sounded like a perfect example, giving me the 
+                necessary data for a recommendation system. In this unsupervised task, the idea is to try and find some way of embedding the songs
+                such that the songs that are similar are close to each other in the embedding space. At the same time, two songs being on many playlists together sounded like a good way to measure similarity.
+            </p>
+            <p>
+                Each song is treated as a token, a word in a sentence. The playlists are then treated as sentences. The idea is to train a neural network to predict the context of a word, given the word itself. This is called the Skip-gram model.
+                The real goal of this method is not only  to find the song embeddings (something that I was quite sure could be found) but also
+                to find some underlying structure in the data. This is because the songs are not only similar in the sense of their audio features, but also in the sense of the playlists they are in.
+            </p>
+            <p>
+                An idea of that is to ask a question like <i> What song is the least like Yesterday by The Beatles </i> or 
+                <i> What song is like XXXX by YYYY if I take away ZZZZ by AAAA </i>. This is something that is not possible with the first method.
+            </p>
+            <p>
+                Another thing that was of interest to me was to be able to then find some vectors that would represent certain concepts. The famous example of 
+                this is <i>A king and a man differ by the same vector as a Queen and woman</i>. 
+            </p>
+            <p>
+                THIS IS CURRENTLY TRAINING
+            </p>
             Uwu, have fun.
             <ul>
                 <li style="word-wrap: break-word;">None</li>

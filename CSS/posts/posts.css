@@ -11,7 +11,7 @@ body {
   margin: auto;
   margin-top: 2em;
   padding: 2em;
-  border-radius: 1em;
+  border-radius: 0.4em;
 }
 
 .mainBody .post h1 {
@@ -29,7 +29,7 @@ body {
 .mainBody .post img {
   margin: auto;
   display: block;
-  max-width: 100%;
+  max-width: 75%;
   height: auto;
 }
 
@@ -101,6 +101,18 @@ table td {
 @media screen and (max-width: 620px) {
   .mainBody .post {
     background-color: white;
-    width: 60%;
+    width: 80%;
+  }
+  .mainBody .post h1 {
+    font-size: 1.5em;
+  }
+  .mainBody .post h2 {
+    font-size: 1.3em;
+  }
+  .mainBody .post h3 {
+    font-size: 1.1em;
+  }
+  .mainBody .post img {
+    max-width: 100%;
   }
 }

@@ -20,7 +20,7 @@ body {
 }
 
 .mainBody .feed .posts .post {
-  border-radius: 0.5em;
+  border-radius: 0.4em;
   padding: 1em;
   margin: 1em;
   background-color: white;
@@ -29,7 +29,7 @@ body {
 .mainBody .feed .posts .post .date {
   margin-top: -8px;
   margin-bottom: 5px;
-  color: #59637c;
+  color: #5d6574;
 }
 
 .mainBody .feed .posts .post img {
@@ -38,7 +38,7 @@ body {
   height: auto;
   max-width: 100%;
   width: 100%;
-  border-radius: 0.5em;
+  border-radius: 0.4em;
   margin-bottom: 1em;
 }
 
@@ -55,7 +55,7 @@ body {
 .mainBody .feed .posts .post .post__title .attributes .attribute {
   background-color: #ff6525;
   border: medium;
-  border-radius: 1em;
+  border-radius: 0.4em;
   margin: 0.3em;
   padding: 0.6em;
   font-size: 0.9rem;
@@ -64,12 +64,12 @@ body {
 .mainBody .feed .posts .post .post__title .attributes .attribute:hover {
   background-color: white;
   border-style: none solid none solid;
-  border-color: #191c23;
+  border-color: #191b1f;
 }
 
 .mainBody .feed .posts .post .title {
   text-decoration: none;
-  color: #191c23;
+  color: #191b1f;
   font-size: 2rem;
   font-weight: bold;
   margin-top: 1em;

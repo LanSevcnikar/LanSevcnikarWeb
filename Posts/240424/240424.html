@@ -228,9 +228,19 @@
             <p>
                 I chose the number of clusters to be 11, as the elbow method did not give a good, definitive answer but
                 seemed to agree and the silhouette score rapidly decreased after that. With that, I then used TSNE to
-                visualize the clusters both in 2D and 3D. The following images show the results.
+                visualize the clusters both in 2D and 3D. The following images show the results (mind you, the 5% most
+                extreme
+                songs were removed, as they were outliers and made the visualization worse (more distant)).
             </p>
             <img src="240424-04.png" alt="2D TSNE">
+            <img src="240424-05.png" alt="3D TSNE">
+            <p>
+                It is notable to mention that this is clearly not the best. First and foremost, most of these songs are
+                in English, which is already odd but okay, that I can chop up to
+                some other reason. But in general, looking at these visualizations, it is clear that the clusters are
+                not
+                very good. The clusters flow into eachother, which makes sense.
+            </p>
             <p>
                 Another thing I then did was to find the most similar songs to a given song. I used the cosine
                 similarity
@@ -238,27 +248,53 @@
                 Beatles,
                 such <i>Yesterday</i>, the songs most similar to it were other Beatles songs.
             <ul>
-                <li>1. Yesterday - Remastered - The Beatles - Help!,</li>
-                <li>2. With A Little Help From My Friends - Remastered - The Beatles - Sgt. Pepper's Lonely Hearts Club Band,</li>
-                <li>3. All You Need Is Love - Remastered 2009 - The Beatles - Magical Mystery Tour,</li>
-                <li>4. Vincent - Don McLean - American Pie,</li>
-                <li>5. While My Guitar Gently Weeps - Remastered - The Beatles - The Beatles.</li>
+                <li>1. Yesterday - Remastered - The Beatles,</li>
+                <li>2. With A Little Help From My Friends - Remastered - The Beatles,</li>
+                <li>3. All You Need Is Love - Remastered 2009 - The Beatles,</li>
+                <li>4. Vincent - Don McLean,</li>
+                <li>5. While My Guitar Gently Weeps - Remastered - The Beatles.</li>
             </ul>
             Do not mind the fact that <i>Yesterday</i> is the song most similar to itself. This is because the dataset
             contains the song multiple times, as it is present on multiple albums and so has different track URIs.
             <br>
             On the other hand, taking a less popular song by them with a more specific energy, such as <i>It's Only
                 Love</i> resulted in the following:
-                <ul>
-                    <li>1. Diet Mountain Dew - Lana Del Rey - Born To Die - The Paradise Edition,</li>
-                    <li>2. She Looks So Perfect - 5 Seconds of Summer - 5 Seconds Of Summer,</li>
-                    <li>3. Picture To Burn - Taylor Swift - Taylor Swift,</li>
-                    <li>4. The Other Woman - Lana Del Rey - Ultraviolence,</li>
-                    <li>5. Same Love - feat. Mary Lambert - Macklemore & Ryan Lewis - The Heist.</li>
-                </ul>
-                This is a really good sign as both <i>Taylor Swift</i> and <i>Lana Del Rey</i> are known for their
-                specific style and energy (sad and specifically focused on love).
+            <ul>
+                <li>1. Diet Mountain Dew - Lana Del Rey,</li>
+                <li>2. She Looks So Perfect - 5 Seconds of Summer,</li>
+                <li>3. Picture To Burn - Taylor Swift,</li>
+                <li>4. The Other Woman - Lana Del Rey,</li>
+                <li>5. Same Love - feat. Mary Lambert - Macklemore & Ryan Lewis.</li>
+            </ul>
+            This is a really good sign as both <i>Taylor Swift</i> and <i>Lana Del Rey</i> are known for their
+            specific style and energy (sad and specifically focused on love).
             </p>
+            <p>
+                I also created a small GUI to be able to look this up easier.
+                <img src="240424-06.png" alt="GUI">
+            </p>
+
+            <p>
+                The final big question was if the directions inside of that space were able to be interpreted. As in the
+                classic example of word embeddings, could it answer questions like more general than just similar. So
+                first is, can it answer questions like <i>What song is the least like Yesterday by The Beatles</i>. And,
+                drum roll please... the songs that are the least like <i>Yesterday</i> are:
+            <ul>
+                <li>1. Ooh Killem - King Kendrick,</li>
+                <li>2. Murder - Justin Timberlake - The 20/20 Experience,</li>
+                <li>3. Bounce - Iggy Azalea,</li>
+                <li>4. Cinema - Radio Edit - Benny Benassi,</li>
+                <li>5. Faith - Radio Edit - Blasterjaxx.</li>
+            </ul>
+            Two notes on these results. Firstly, I am here assuming that the song most opposite of it is the song in all
+            ways most distant to it (so the most similar to the original song's vector multiplied by -1). Secondly, the
+            second
+            song here openly refers to The Beatles in the line <i>Know that shit gotta be lethal / If that pussy broke
+                up The Beatles</i> and I think that is pretty funny.
+            </p>
+            <p>Sadly, I couldn't think of a way to test the last question but to be honest, that is something that I
+                will have fun with some time when there will be more time for it</p>
+
             <h2>
                 Attention is all you need - the use of transformers for song recommendation
             </h2>
@@ -280,12 +316,19 @@
                 and other models. This
                 gave me an idea that I wanted to try that as well.
             </p>
-            <p>
-
-            </p>
-            Uwu, have fun.
+            <h1>
+                References
+            </h1>
             <ul>
-                <li style="word-wrap: break-word;">None</li>
+                <li style="word-wrap: break-word;"> <a
+                        href="https://research.atspotify.com/2020/09/the-million-playlist-dataset-remastered/">1 million
+                        playlists - Spotify Dataset</a>
+
+                </li>
+                <li>
+                    <a href="https://www.kaggle.com/datasets/yamaerenay/spotify-dataset-19212020-600k-tracks"> Spotify
+                        song metadata dataset (1921 - 2016)</a>
+                </li>
             </ul>
         </div>
     </div>

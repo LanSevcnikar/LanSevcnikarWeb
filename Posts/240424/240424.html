@@ -184,28 +184,104 @@
                 Neural network approach - Word embeddings using Skip-gram
             </h2>
             <p>
-                The next idea I had was to use a neural network to create word embeddings of the songs. 
+                The next idea I had was to use a neural network to create word embeddings of the songs.
             </p>
             <p>
-                Spotify created a dataset that contains 1 million playlists. This sounded like a perfect example, giving me the 
-                necessary data for a recommendation system. In this unsupervised task, the idea is to try and find some way of embedding the songs
-                such that the songs that are similar are close to each other in the embedding space. At the same time, two songs being on many playlists together sounded like a good way to measure similarity.
+                Spotify created a dataset that contains 1 million playlists. This sounded like a perfect example, giving
+                me the
+                necessary data for a recommendation system. In this unsupervised task, the idea is to try and find some
+                way of embedding the songs
+                such that the songs that are similar are close to each other in the embedding space. At the same time,
+                two songs being on many playlists together sounded like a good way to measure similarity.
             </p>
             <p>
-                Each song is treated as a token, a word in a sentence. The playlists are then treated as sentences. The idea is to train a neural network to predict the context of a word, given the word itself. This is called the Skip-gram model.
-                The real goal of this method is not only  to find the song embeddings (something that I was quite sure could be found) but also
-                to find some underlying structure in the data. This is because the songs are not only similar in the sense of their audio features, but also in the sense of the playlists they are in.
+                Each song is treated as a token, a word in a sentence. The playlists are then treated as sentences. The
+                idea is to train a neural network to predict the context of a word, given the word itself. This is
+                called the Skip-gram model.
+                The real goal of this method is not only to find the song embeddings (something that I was quite sure
+                could be found) but also
+                to find some underlying structure in the data. This is because the songs are not only similar in the
+                sense of their audio features, but also in the sense of the playlists they are in.
             </p>
             <p>
-                An idea of that is to ask a question like <i> What song is the least like Yesterday by The Beatles </i> or 
-                <i> What song is like XXXX by YYYY if I take away ZZZZ by AAAA </i>. This is something that is not possible with the first method.
+                An idea of that is to ask a question like <i> What song is the least like Yesterday by The Beatles </i>
+                or
+                <i> What song is like XXXX by YYYY if I take away ZZZZ by AAAA </i>. This is something that is not
+                possible with the first method.
             </p>
             <p>
-                Another thing that was of interest to me was to be able to then find some vectors that would represent certain concepts. The famous example of 
-                this is <i>A king and a man differ by the same vector as a Queen and woman</i>. 
+                Another thing that was of interest to me was to be able to then find some vectors that would represent
+                certain concepts. The famous example of
+                this is <i>A king and a man differ by the same vector as a Queen and woman</i>.
+            </p>
+            <h3>
+                Results:
+            </h3>
+            <p>
+                The first type of analysis I wished to preform was a very simple clustering of the songs. I used the
+                K-means algorithm to cluster the songs.
+                Finding the optimal k was done using a combination of the elbow method and the silhouette score. The
+                results were quite good, as can be seen in the image bellow.
+            </p>
+            <img src="240424-02.png" alt="Silloute scores">
+            <img src="240424-03.png" alt="Elbow method">
+            <p>
+                I chose the number of clusters to be 11, as the elbow method did not give a good, definitive answer but
+                seemed to agree and the silhouette score rapidly decreased after that. With that, I then used TSNE to
+                visualize the clusters both in 2D and 3D. The following images show the results.
+            </p>
+            <img src="240424-04.png" alt="2D TSNE">
+            <p>
+                Another thing I then did was to find the most similar songs to a given song. I used the cosine
+                similarity
+                to do this. The results were good and nicely specific. Fox example, taking a popular song by The
+                Beatles,
+                such <i>Yesterday</i>, the songs most similar to it were other Beatles songs.
+            <ul>
+                <li>1. Yesterday - Remastered - The Beatles - Help!,</li>
+                <li>2. With A Little Help From My Friends - Remastered - The Beatles - Sgt. Pepper's Lonely Hearts Club Band,</li>
+                <li>3. All You Need Is Love - Remastered 2009 - The Beatles - Magical Mystery Tour,</li>
+                <li>4. Vincent - Don McLean - American Pie,</li>
+                <li>5. While My Guitar Gently Weeps - Remastered - The Beatles - The Beatles.</li>
+            </ul>
+            Do not mind the fact that <i>Yesterday</i> is the song most similar to itself. This is because the dataset
+            contains the song multiple times, as it is present on multiple albums and so has different track URIs.
+            <br>
+            On the other hand, taking a less popular song by them with a more specific energy, such as <i>It's Only
+                Love</i> resulted in the following:
+                <ul>
+                    <li>1. Diet Mountain Dew - Lana Del Rey - Born To Die - The Paradise Edition,</li>
+                    <li>2. She Looks So Perfect - 5 Seconds of Summer - 5 Seconds Of Summer,</li>
+                    <li>3. Picture To Burn - Taylor Swift - Taylor Swift,</li>
+                    <li>4. The Other Woman - Lana Del Rey - Ultraviolence,</li>
+                    <li>5. Same Love - feat. Mary Lambert - Macklemore & Ryan Lewis - The Heist.</li>
+                </ul>
+                This is a really good sign as both <i>Taylor Swift</i> and <i>Lana Del Rey</i> are known for their
+                specific style and energy (sad and specifically focused on love).
+            </p>
+            <h2>
+                Attention is all you need - the use of transformers for song recommendation
+            </h2>
+            <p>
+                While the previous method turned out to be quite a success (I already have some results ready but not
+                enough to post here)
+                it does not solve the original task I wanted to solve. The original task was to find a way to recommend
+                songs to a user.
+                And while there are many approaches to this, I wanted to try and use the transformer architecture.
             </p>
             <p>
-                THIS IS CURRENTLY TRAINING
+                The main reason was that I had not seen anyone doing this. The approach outlines in the previous chapter
+                was also rather new but after
+                a lot of digging, I was able to find a paper that was already dealing with that. But the transformer
+                architecture was not used.
+            </p>
+            <p>
+                On top of that, there has been a lot of talk a bout transformers lately, being the backbone of GPT, Bard
+                and other models. This
+                gave me an idea that I wanted to try that as well.
+            </p>
+            <p>
+
             </p>
             Uwu, have fun.
             <ul>

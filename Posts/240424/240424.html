@@ -66,8 +66,9 @@
                 This data was then used to create values between 0 and 1, accoring to which percentaile of the data the
                 songs fell.
                 With that, I got the following results:
+            </p>
+            <button type="button" class="collapsible">Table displaying the data</button>
             <div class="table-div">
-
                 <table>
                     <tr>
                         <th>Feature</th>
@@ -150,7 +151,7 @@
                         <td> ['The Beatles'] </td>
                     </tr>
                 </table>
-            </div>
+            </div> <br> <br>
             However, this quickly showed to be bad, as using either euclidean distance or cosine similarity to compare
             songs showed to be absolutely useless:
             <h4>
@@ -294,7 +295,59 @@
             </p>
             <p>Sadly, I couldn't think of a way to test the last question but to be honest, that is something that I
                 will have fun with some time when there will be more time for it</p>
-
+            <p>
+                With that, I have also then created a simple playlist extention algorithm that averages out
+                weights of the songs and then just finds the songs that are the most similar to that average.
+                The playlists in italics are the seeds. <br>
+            </p>
+            <button type="button" class="collapsible">Playlist A</button>
+            <ul>
+                <li><i>Diet Mountain Dew by Lana Del Rey from the album Born To Die - The Paradise Edition</i></li>
+                <li><i>Francis Forever by Mitski from the album Bury Me At Makeout Creek</i></li>
+                <li><i>Lovers Rock by TV Girl from the album French Exit</i></li>
+                <li>The Wild Life by Vacationer from the album Relief</li>
+                <li>Beyond Love by Beach House from the album Depression Cherry</li>
+                <li>My Girls by Animal Collective from the album Merriweather Post Pavilion</li>
+                <li>Bel Air by Lana Del Rey from the album Born To Die - The Paradise Edition</li>
+                <li>Passing Out Pieces by Mac Demarco from the album Salad Days</li>
+                <li>Bloodflows by SOHN from the album Bloodflows</li>
+                <li>She Said by Sundara Karma from the album Youth is Only Ever Fun in Retrospect</li>
+                <li>Sleepyhead - Stripped Down Version by Passion Pit from the album Manners</li>
+                <li>How Long Must I Wait by Dr. Dog from the album Be The Void</li>
+            </ul>
+            <br>
+            
+            <button type="button" class="collapsible">Playlist B</button>
+            <ul>
+                <li><i>Sympathy For The Devil by The Rolling Stones from the album Beggars Banquet</i></li>
+                <li><i>Stairway To Heaven by Led Zeppelin from the album Led Zeppelin IV</i></li>
+                <li><i>Sultans Of Swing by Dire Straits from the album Dire Straits</i></li>
+                <li>Southern Man - Remastered by Neil Young from the album After The Gold Rush</li>
+                <li>Kashmir by Led Zeppelin from the album Physical Graffiti</li>
+                <li>Who Are You by The Who from the album Who Are You</li>
+                <li>Bron-Y-Aur Stomp by Led Zeppelin from the album Led Zeppelin III</li>
+                <li>Stay With Me by Faces from the album A Nod Is As Good As A Wink To A Blind Horse</li>
+                <li>Stairway to Heaven by Swan Montgomery from the album Swan Montgomery Covers the Greatest Hits of Led
+                Zeppelin </li>
+                <li>Time by Pink Floyd from the album The Dark Side of the Moon</li>
+            </ul><br>
+            <button type="button" class="collapsible">Playlist C</button>
+            <ul>
+                
+                <li><i>The Real Slim Shady by Eminem from the album The Marshall Mathers LP</i></li>
+                <li><i>Hypnotize - 2014 Remastered Version by The Notorious B.I.G. from the album Life After Death (Remastered Edition)</i></li>
+                <li><i>Timber by Pitbull from the album Global Warming: Meltdown (Deluxe Version)</i></li>
+                <li>Hits from the Bong by Cypress Hill from the album Black Sunday</li>
+                <li>Ghetto Supastar (That is What You Are) by Pras from the album Ghetto Supastar</li>
+                <li>Boyz by M.I.A. from the album Kala</li>
+                <li>Freek-A-Leek by Petey Pablo from the album Still Writing In My Diary: 2nd Entry</li>
+                <li>Paul Revere by Beastie Boys from the album Licensed To Ill</li>
+                <li>Splash Waterfalls by Ludacris from the album Chicken - N - Beer</li>
+                <li>The Night Out - Madeon Remix by Martin Solveig from the album Smash</li>
+                <li>Real Nigga Roll Call by Lil Jon from the album Crunk Juice</li>
+                <li>Throw Some D's by Rich Boy from the album Rich Boy</li>
+            </ul>
+            <br>
             <h2>
                 Attention is all you need - the use of transformers for song recommendation
             </h2>
@@ -315,23 +368,117 @@
                 On top of that, there has been a lot of talk a bout transformers lately, being the backbone of GPT, Bard
                 and other models. This
                 gave me an idea that I wanted to try that as well.
+            </p>¸
+            <p>
+                This method did not work too well due to the simple time complexity of running the model. The model was
+                comprised of 283 million parameters and took a long time to train. The results were not good enough,
+                most likely due to the fact that the size of the model was not big enough.
+            </p>
+            <p>
+                This, coupled with the fact that to get even a slight plateau in the loss function, the model had to be
+                trained for 10 hours and on top of that I also limited the data to only 20% of the dataset.
+                So icreasing the complexity of the model, as well as adding data to it was not feasable on my small
+                little computer so I had to stop.
+            </p>
+            <p>
+                I will revisit this in the future, as I think that this is a very interesting approach and I would like
+                to see how it would work. But I will need access to a stronger GPU and more time to do this.
+            </p>
+            <img src="240424-07.png" alt="Loss function">
+            <h3>
+                Examples of some playlists generated from the model
+            </h3>
+            These are some examples. The songs in Italics are the songs that were used as the seed for the playlist.
+            <br>
+            <button type="button" class="collapsible">Playlist 1</button>
+            <ul>
+                <li> <i>Diet Mountain Dew by Lana Del Rey from the album Born To Die - The Paradise Edition</i></li>
+                <li> <i>Francis Forever by Mitski from the album Bury Me At Makeout Creek</i></li>
+                <li> <i>Lovers Rock by TV Girl from the album French Exit</i></li>
+                <li> K-LOVE Fan Awards: Songs of the Year (2015 Mash-Up) by Anthem Lights from the album K-LOVE Fan
+                    Awards: Songs of the Year (2015 Mash-Up)</li>
+                <li> Million Dollar Bills by Lorde from the album Pure Heroine</li>
+                <li> The Real World by Drugdealer from the album The End Of Comedy</li>
+                <li> All Creatures (Live) by Kings Kaleidoscope from the album Live in Focus - EP</li>
+                <li> Reflection - From "Mulan"/Soundtrack Version by Lea Salonga from the album Mulan</li>
+                <li> When Will My Life Begin - From "Tangled"/Soundtrack Version by Mandy Moore from the album Tangled
+                </li>
+                <li> A Whole New World by Lea Salonga from the album Aladdin</li>
+                <li> I Just Can't Wait to Be King - From "The Lion King"/Soundtrack Version by Jason Weaver from the
+                    album The Lion King</li>
+                <li> Poor Unfortunate Souls - From "The Little Mermaid" / Soundtrack Version by Pat Carroll from the
+                    album Little Mermaid</li>
+                <li> I Just Can't Wait to Be King - From "The Lion King"/Soundtrack Version by Jason Weaver from the
+                    album The Lion King</li>
+            </ul>
+            <br>
+            <button type="button" class="collapsible">Playlist 2</button>
+            <ul>
+                <li><i>Sympathy For The Devil by The Rolling Stones from the album Beggars Banquet</i></li>
+                <li><i>Stairway To Heaven by Led Zeppelin from the album Led Zeppelin IV</i></li>
+                <li><i>Sultans Of Swing by Dire Straits from the album Dire Straits</i></li>
+                <li>Only the Good Die Young by Billy Joel from the album The Stranger (30th Anniversary Legacy Edition)
+                </li>
+                <li>Aerials by System Of A Down from the album Toxicity</li>
+                <li>Eye Of The Beholder by Metallica from the album ...And Justice For All</li>
+                <li>Get Closer by Seals and Crofts from the album Get Closer</li>
+                <li>Listen To The Music by The Doobie Brothers from the album Toulouse Street</li>
+                <li>I'm Free by The Who from the album Tommy</li>
+                <li>Heat Of The Moment by Asia from the album Asia</li>
+                <li>Right Here Waiting by Richard Marx from the album Repeat Offender</li>
+                <li>Paradise City by Guns N' Roses from the album Appetite For Destruction</li>
+                <li>Hot For Teacher - 2015 Remastered Version by Van Halen from the album 1984</li>
+            </ul>
+            <br>
+            <button type="button" class="collapsible">Playlist 3</button>
+            <ul>
+                <li>
+                <li>Sympathy For The Devil by The Rolling Stones from the album Beggars Banquet</li>
+                </li>
+                <li>
+                <li>Stairway To Heaven by Led Zeppelin from the album Led Zeppelin IV</li>
+                </li>
+                <li>
+                <li>Sultans Of Swing by Dire Straits from the album Dire Straits</li>
+                </li>
+                <li>Only the Good Die Young by Billy Joel from the album The Stranger (30th Anniversary Legacy Edition)
+                </li>
+                <li>Aerials by System Of A Down from the album Toxicity</li>
+                <li>Eye Of The Beholder by Metallica from the album ...And Justice For All</li>
+                <li>Get Closer by Seals and Crofts from the album Get Closer</li>
+                <li>Listen To The Music by The Doobie Brothers from the album Toulouse Street</li>
+                <li>I'm Free by The Who from the album Tommy</li>
+                <li>Heat Of The Moment by Asia from the album Asia</li>
+                <li>Right Here Waiting by Richard Marx from the album Repeat Offender</li>
+                <li>Paradise City by Guns N' Roses from the album Appetite For Destruction</li>
+                <li>Hot For Teacher - 2015 Remastered Version by Van Halen from the album 1984</li>
+            </ul>
+            <br>
+            I think these are rather weak, but who am I to judge.
+            So I went back to the previous option of embedding it and instead of some complicated model, I used a simple
+            average of the embeddings of the songs in the playlist.
+            <p>
+                I will also add to this Blog later, adding two things: Firstly, diagrams to how it works and secondly results that will be improved over time.
             </p>
             <h1>
                 References
             </h1>
             <ul>
                 <li style="word-wrap: break-word;"> <a
-                        href="https://research.atspotify.com/2020/09/the-million-playlist-dataset-remastered/">1 million
+                        href="https://research.atspotify.com/2020/09/the-million-playlist-dataset-remastered/">1
+                        million
                         playlists - Spotify Dataset</a>
 
                 </li>
                 <li>
-                    <a href="https://www.kaggle.com/datasets/yamaerenay/spotify-dataset-19212020-600k-tracks"> Spotify
+                    <a href="https://www.kaggle.com/datasets/yamaerenay/spotify-dataset-19212020-600k-tracks">
+                        Spotify
                         song metadata dataset (1921 - 2016)</a>
                 </li>
             </ul>
         </div>
     </div>
 </body>
+<script src="../../JS/collapsible.js"></script>
 
 </html>

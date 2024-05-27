@@ -103,20 +103,6 @@
     var grav_const = NaN;
 
 
-    // var opacity = 350;
-    var opacity = 350;
-    var opacity_delta = 1;
-    var opacity_interval = setInterval(function () {
-      if(opacity > 255){
-        opacity -= 5;
-      }
-      else{
-        opacity -= opacity_delta;
-        opacity_delta += 1;
-      }
-    }, 180);
-    // lower oppacity every 0.1 second by 10
-
 
 
     // create point class
@@ -215,11 +201,6 @@
       background(25, 27, 31); //UPDATE 
       show_all_points(points);
       update_all_points(points);
-      if (opacity <= 0) {
-        clearInterval(opacity_interval);
-      } else {
-        background(25, 27, 31, opacity);
-      }
       background(25, 27, 31, 150);
     }
   </script>
